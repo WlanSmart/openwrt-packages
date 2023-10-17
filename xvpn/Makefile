@@ -17,7 +17,6 @@ PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 
-PKG_BUILD_DEPENDS:=golang/host
 GO_PKG:=xvpn
 GO_PKG_LDFLAGS:=-s -w
 
@@ -52,7 +51,7 @@ define Build/compile
 	$(call GoPackage/Build/Compile)
 ifeq ($(CONFIG_XVPN_GO_COMPRESS_UPX),y)
 	wget -q https://github.com/upx/upx/releases/download/v4.1.0/upx-4.1.0-amd64_linux.tar.xz -O $(DL_DIR)/upx-4.1.0-amd64_linux.tar.xz
-	rm -rf $(BUILD_DIR)/upx
+	rm -rf $(PKG_bBUILD_DIR)/upx
 	mkdir -p $(BUILD_DIR)/upx
 	xz -d -c $(DL_DIR)/upx-4.1.0-amd64_linux.tar.xz | tar -x -C $(BUILD_DIR)/upx
 	chmod +x $(BUILD_DIR)/upx/upx-4.1.0-amd64_linux/upx
