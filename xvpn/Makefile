@@ -7,7 +7,7 @@ PKG_RELEASE:=3
 PKG_MAINTAINER:=B <b@doubi.fun>
 
 PKG_SOURCE_PROTO=git
-PKG_SOURCE_URL=git@git.doubi.fun:ab/xvpn.git
+PKG_SOURCE_URL=git@github.com:abxuz/xvpn.git
 PKG_SOURCE_VERSION=main
 
 PKG_CONFIG_DEPENDS:= \
