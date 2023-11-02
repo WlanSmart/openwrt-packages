@@ -78,7 +78,7 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/$(PKG_NAME) $(1)/usr/sbin/
 	$(INSTALL_BIN) files/xvpn.init $(1)/etc/init.d/xvpn
-	$(CP) files/xvpn.config $(1)/etc/config/xvpn
+	$(INSTALL_CONF) files/xvpn.config $(1)/etc/config/xvpn
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))

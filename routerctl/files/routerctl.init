@@ -1,0 +1,38 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+USE_PROCD=1
+
+start_instance() {
+	local cfg="$1"
+	local api
+    local devcode
+    local firmware
+
+	config_get api "$cfg" api
+	config_get devcode "$cfg" devcode
+	config_get firmware "$cfg" firmware
+
+	cat > "/var/etc/routerctl.json.$cfg" <<-EOF
+{
+    "api": "$api",
+	"devcode": "$devcode",
+	"firmware": "$firmware"
+}
+EOF
+
+	procd_open_instance "routerctl.$cfg"
+    procd_set_param respawn
+	procd_set_param command /usr/sbin/routerctl
+	procd_append_param command -c /var/etc/routerctl.json.$cfg
+	procd_close_instance
+}
+
+service_triggers() {
+    procd_add_reload_trigger "routerctl"
+}
+
+start_service() {
+    config_load routerctl
+    config_foreach start_instance routerctl
+}
