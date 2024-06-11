@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=routerctl
-PKG_VERSION:=1.1.3
+PKG_VERSION:=1.2.0
 PKG_RELEASE:=1
 
 PKG_MAINTAINER:=B <b@doubi.fun>
@@ -14,13 +14,13 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
   CATEGORY:=App
-  TITLE:=Guanyu Router Control Program
+  TITLE:=WlanSmart Router Control Program
   MENU:=1
   DEPENDS:=+libstdcpp +libcurl +libjson-c
 endef
 
 define Package/$(PKG_NAME)/description
- Guanyu Router Control Program
+ WlanSmart Router Control Program
 endef
 
 define Build/Compile
