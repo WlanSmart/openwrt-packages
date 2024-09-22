@@ -7,7 +7,7 @@ PKG_RELEASE:=1
 PKG_MAINTAINER:=B <b@doubi.fun>
 
 PKG_SOURCE_PROTO=git
-PKG_SOURCE_URL=git@github.com:abxuz/routerctl.git
+PKG_SOURCE_URL=git@github.com:WlanSmart/routerctl.git
 PKG_SOURCE_VERSION=main
 
 include $(INCLUDE_DIR)/package.mk
